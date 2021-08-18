@@ -1,0 +1,207 @@
+/* Palette */
+/* Typo */
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.primary {
+  color: #fc2004;
+}
+
+/* base */
+.header {
+  background-color: white !important;
+  min-height: 100px;
+  color: #fc2004 !important;
+}
+
+.footer {
+  background-color: white !important;
+  min-height: 100px;
+  color: #fc2004 !important;
+  padding-top: 50px;
+}
+
+.main {
+  background-color: #fc2004;
+  min-height: 680px;
+  color: white;
+  text-align: center;
+}
+
+.fa {
+  font-size: 32px;
+}
+
+.card-body {
+  background-color: white;
+  color: #fc2004;
+}
+
+.card {
+  margin: 5px;
+  height: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-content: space-around;
+  justify-content: space-between;
+}
+
+a {
+  color: unset;
+}
+a:hover {
+  color: #fc0446 !important;
+}
+
+.site-navigation {
+  display: flex;
+  align-content: space-between;
+  justify-content: center;
+}
+
+li {
+  display: flex;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.addToCartBtn:active {
+  background-color: #fc0446;
+}
+
+.disabled {
+  background-color: gray;
+}
+
+h1 {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* bootstrap card */
+.small-card {
+  width: 100%;
+  min-width: 200px;
+  margin: 0.5%;
+}
+@media screen and (min-width: 1000px) {
+  .small-card {
+    width: 24%;
+  }
+  .small-card #cardImage {
+    height: 200px;
+  }
+}
+
+.flex {
+  display: flex;
+  flex-wrap: inherit;
+}
+
+#start {
+  padding-bottom: 20px;
+}
+
+#cardName {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: unset;
+}
+
+#cardPrice {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.form {
+  font-weight: bold;
+  display: flex;
+}
+
+.label {
+  margin-right: 20px;
+}
+
+.confirmationText {
+  padding: 20px;
+  display: block;
+}
+
+.formulaire {
+  text-align: initial;
+  padding-bottom: 20px;
+}
+
+#totalPrice {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* Animation */
+@keyframes btnAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}
+/* Btn */
+.btnPurp {
+  border-color: #fc5f04;
+  background-color: #fc0446;
+  color: white;
+}
+.btnPurp:hover {
+  animation-name: btnAnimation;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
+}
+
+.btnSmall {
+  border-radius: 40px;
+  font-size: 24px;
+  padding: 10px;
+  border-width: 10px;
+}
+@media screen and (min-width: 1000px) {
+  .btnSmall {
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 5px;
+    border-width: 5px;
+  }
+}
+
+.btnBig {
+  border-radius: 40px;
+  font-size: 24px;
+  padding: 10px;
+  border-width: 10px;
+}
+#orderBtn {
+  width: 480px;
+  max-width: 70vw;
+  z-index: 1;
+  position: relative;
+}
+
+/*# sourceMappingURL=style.css.map */

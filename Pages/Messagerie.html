@@ -12,10 +12,10 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" media="screen" type="text/css" href="./CSS/style.css">
+    <link rel="stylesheet" media="screen" type="text/css" href="../CSS/style.css">
 
     <script src="https://kit.fontawesome.com/fe86d4450e.js" crossorigin="anonymous"></script>
-    <script src="./JS/index.js" defer></script>
+    <script src="../JS/messagerie.js" defer></script>
 
     <title>Connexion - Groupomania</title>
 </head>
@@ -25,12 +25,12 @@
     <header class="header">
         <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="./index.html">
-                <img src="./Images/Icon/icon-above-font.png" width="150"
+                <img src="../Images/Icon/icon-above-font.png" width="150"
                     height="100" alt="Site logo">
             </a>
             <ul class="site-navigation nav navbar-nav">
                 <li>
-                    <a href="./index.html">Connexion</a>
+                    <a href="../index.html">Connexion</a>
                 </li>
                 <li>
                     <a href="./Pages/signup.html">Inscription</a>
@@ -40,26 +40,35 @@
     </header>
 
     <main class="main">
-        <h1>Bienvenue !</h1>
+        <h1>Messagerie</h1>
         <section class="container">
-            <h2>Identifiants</h2>
+            <h2>Fil d'actualité</h2>
+
+            <div><label class="label" for="message">Message:</label></div>
+            <div><input id="message" type="text" name="message" value="Dites quelquechose !"></div>
+            <input type="file" id="imageUrl" name="imageUrl" accept="image/png, image/jpeg"></input>
+            <button id="publier">Envoyer</button>
+
+            <div id="start"></div>
+            <template id="templateArticle">
             <div class="row">
-                <div id="start" class="col">
-                    <div><label class="label" for="email">Adresse mail:</label></div>
-                    <div><input id="email" type="text" name="email" value="Email"></div>
+                <div  class="col">
+                    <article class="small-card">
+                        <div class="card">
+                            <img id="cardImage" class=”card-img-top” src=”...” alt=”...”>
+                            <div id="card-body" class="card-body">
+                                <div id="cardName" class="card-body">
+                                    [contenu de la carte]
+                                </div>
+                                <div id="cardText">
+                                    [contenu de la carte]
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                 </div>
             </div>
-            <div class="row">
-                <div class="col">
-                    <div><label class="label" for="password">Mot de passe:</label></div>
-                    <div><input id="password" type="password" name="password" value="***********"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button id="connexion">Validate</button>
-                </div>
-            </div>
+            </template>
         </section>
     </main>
 

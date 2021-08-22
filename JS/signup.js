@@ -1,7 +1,8 @@
-// fichier js de connexion
+// fichier js d'inscription
 
 // modéle user
 let contact =  {
+    name: "",
     email: "",
     password: ""
 }
@@ -21,14 +22,15 @@ async function main() {
 }
 
 function getId() {
+    contact.name = document.getElementById("name").value
     contact.email = document.getElementById("email").value;
     contact.password = document.getElementById("password").value;
     console.log("getId")
 }
 
 
-function login(contact){
-    return fetch("http://localhost:3000/api/auth/login" ,{
+function signup(contact){
+    return fetch("http://localhost:3000/api/auth/signup" ,{
                 method: "POST" ,
                 headers: { 
             'Accept': 'application/json', 
@@ -51,13 +53,12 @@ function login(contact){
 
 async function installation() {
     //button get elementbyid: On click event methode post go to page chat
-    document.getElementById("connexion").addEventListener("click" ,async function(){
+    document.getElementById("signup").addEventListener("click" ,async function(){
         getId();
-        const id = await login(contact)
-        console.log(id)
-        if(id.name) {
-            sessionStorage.setItem('name', `${id.name}`);
-            window.location.href = "./pages/messagerie.html";
+        const id = await signup(contact)
+        if(id){
+            window.location.href = "../index.html";
         }
+        //
     })
 }

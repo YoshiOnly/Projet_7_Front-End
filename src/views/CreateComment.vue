@@ -91,7 +91,5 @@ export default {
 </script>
 
 <style scoped>
-main {
-    padding-bottom: 2%;
-}
+
 </style>

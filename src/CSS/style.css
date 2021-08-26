@@ -1,7 +1,7 @@
 /* Palette */
 /* Typo */
 .white {
-  color: white;
+  color: #D4D4D4;
 }
 
 .black {
@@ -9,28 +9,31 @@
 }
 
 .primary {
-  color: #fc2004;
+  color: #091F43;
 }
 
 /* base */
 .header {
-  background-color: white !important;
+  background-color: #D1515A !important;
   min-height: 100px;
-  color: #fc2004 !important;
+  color: #091F43 !important;
 }
 
 .footer {
-  background-color: white !important;
+  background-color: #D1515A !important;
   min-height: 100px;
-  color: #fc2004 !important;
+  color: #091F43 !important;
   padding-top: 50px;
 }
 
 .main {
-  background-color: #fc2004;
+  background-color: #091F43;
   min-height: 680px;
-  color: white;
+  color: #D4D4D4;
   text-align: center;
+  padding-bottom: 2%;
+  background-color: #091F43;
+  justify-content: center;
 }
 
 .fa {
@@ -38,13 +41,23 @@
 }
 
 .card-body {
-  background-color: white;
-  color: #fc2004;
+  background-color: #D1515A;
+  color: #091F43;
+}
+
+.card-header {
+  color: black;
 }
 
 .card {
   margin: 5px;
   height: 100%;
+  width: 100%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: #D4D4D4;
+  color: black;
+  padding-bottom: 1%;
 }
 
 .navbar {
@@ -166,7 +179,7 @@ h2 {
 }
 /* Btn */
 .btnPurp {
-  border-color: #fc5f04;
+  border-color: #D4D4D4;
   background-color: #fc0446;
   color: white;
 }
@@ -202,6 +215,31 @@ h2 {
   max-width: 70vw;
   z-index: 1;
   position: relative;
+}
+
+.btn {
+  background-color: #D4D4D4;
+}
+
+.block-admin {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.bouton {
+  margin: 10px;
+}
+
+.btn {
+  background-color: #D4D4D4;
+  border-color: black;
+  border-width: 1px;
+  border-style: outset;
+}
+
+.messImage {
+  max-width: 90%;
+  max-height: 80%;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -3,7 +3,7 @@
 <template>
     <div>    
         <Header></Header>
-        <main v-if="isAdmin">   
+        <main class="main" v-if="isAdmin">   
              <!-- section incluant le titre --> 
             <section>
                 <h1>Administration du site</h1>
@@ -15,7 +15,7 @@
                     <article class="card">
                         <div class="card-header">
                             <div class="row justify-content-around">
-                                <div class="m-1" style="color: red;"> Bonjour {{ nameCurrentUser }} ! </div>
+                                <div class="m-1"> Bonjour {{ nameCurrentUser }} ! </div>
                                 <button @click="localClear"> SIGNOUT </button>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                 </div>   
                  <!-- bloc choix (to comment list ou user list) -->
                 <article class="">
-                    <h2 class="text-white">FAITES VOTRE CHOIX</h2>
+                    <h2 >FAITES VOTRE CHOIX</h2>
                     <div class="row justify-content-around">
                         <button @click="toCommentsList()" class="btn  rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
                         <button @click="toUsersList()" class="btn  rounded shadow font-weight-bold p-5 m-2" >USERS</button>
@@ -105,25 +105,5 @@ export default {
 
 
 <style scoped>
-.card {
-    width: 100%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
 
-main {
-    padding-bottom: 2%;
-    background-color: red;
-    color: white;
-    text-align: center;
-}
-
-.btn {
-    background-color: white;
-}
-
-.block-admin{
-    width: 80%;
-    margin-left: 10%;
-}
 </style>

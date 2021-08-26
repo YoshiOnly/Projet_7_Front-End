@@ -5,6 +5,7 @@ import Signup from '../views/signup.vue'
 import Messagerie from '../views/messagerie.vue'
 import Create from '../views/Create.vue'
 import Comment from '../views/Comment.vue'
+import Modify from "../views/Modify.vue"
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,11 @@ const routes = [
     path: '/comment',
     name: 'comment',
     component: Comment
+  },
+  {
+    path: '/Modify',
+    name: 'Modify',
+    component: Modify
   },
   {
     path: "/Admin",

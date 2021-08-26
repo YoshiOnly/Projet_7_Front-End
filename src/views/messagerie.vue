@@ -8,10 +8,10 @@
 
             <!-- bloc utilisateur -->
                 <article class="">
-                    <div class="card bg-light my-3 class=center-block" style="float:none;">
+                    <div class="card my-3 class=center-block" style="float:none;">
                         <div class="card-header">
                             <div class="row justify-content-around">
-                                <p class="m-1" style="color:red;"> Bonjour {{ name }} ! </p>
+                                <p class="m-1" > Bonjour {{ name }} ! </p>
                                 <button @click="localClear"> Se deconnecter </button>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div v-for="message in messages" :key="message.id" class="card">
                         <div>
-                            <span style="color: red;">
+                            <span>
                                 Posté par {{ message.userName.charAt(0).toUpperCase() + message.userName.slice(1) }}
                                 le {{ message.createdAt.slice(0,10).split('-').reverse().join('.') + ' à ' + message.createdAt.slice(11,16) }}
                             </span>
@@ -53,18 +53,17 @@
                             <img :src="message.messageUrl" v-if="message.messageUrl !== '' " class="border messImage" alt="image postée par un utilisateur" />
                         </div>
 
-                        <div style="color: red;">
+                        <div>
                             {{message.message}}
-                        </div>
-
-                        <div class="p-2"> 
-                            <p v-if="isAdmin || message.UserId == id" class="ml-2">   {{ message.message }} </p> 
                         </div>
 
                         <div class="row card-footer justify-content-around">
                             <button @click="commentPage(message.id)" class="border-0"> Commenter </button>
                             <div v-if="isAdmin || message.UserId == id">
                                 <button @click="deleteMessage(message.id, message.UserId, id)" class="border-0"> Supprimer </button>
+                            </div>
+                            <div v-if="isAdmin || message.UserId == id">
+                                <button  @click="modifyPage(message.id)" class="border-0"> Modifier </button>
                             </div>
                         </div>                             
                     </div>                        
@@ -136,6 +135,11 @@ export default {
             console.log(m);
             localStorage.setItem('MessageId', m);
             router.push({ path : "/Comment" });
+        },
+        modifyPage(m) {
+            console.log(m);
+            localStorage.setItem('MessageId', m);
+            router.push({ path : "/Modify" });
         },
         deleteMessage(a, b, c) {
             console.log(

@@ -3,7 +3,7 @@
 <template>
     <div v-if="isAdmin">   
         <Header></Header> 
-        <main class="col-12">
+        <main class="col-12 main">
              <!-- div incluant le titre -->
             <div>
                 <h1>Administration des commentaires</h1>
@@ -14,7 +14,7 @@
                     <article class="card">
                         <div class="card-header">
                             <span>
-                                <span  style="color:red;"> Bonjour {{ nameCurrentUser }} ! </span>
+                                <span> Bonjour {{ nameCurrentUser }} ! </span>
                                 <button class="btn-signout" @click="localClear"> SIGNOUT </button>
                             </span>
                         </div>
@@ -23,7 +23,7 @@
                                 <p>Membre depuis le {{ creation }}</p>
                             </div>
                             <div>
-                                <router-link v-if="isAdmin" to='/Admin'><button  type="button" class=" btn  mx-auto rounded p-2 buttonsPanel">ADMIN. </button></router-link> 
+                                <router-link v-if="isAdmin" to='/Admin'><button  type="button" class=" btn  mx-auto rounded p-2 buttonsPanel">ADMINISTRATION </button></router-link> 
                             </div>
                         </div>
                         <div class="card-body mx-auto">
@@ -113,33 +113,14 @@ export default {
         seeOnePost(m) {
             console.log(m);
             localStorage.setItem('MessageId', m);
-            router.replace("http://localhost:8080/api/comment")
+            router.push({path : "/comment"})
         }
     }
 }
 </script>
 
 <style scoped>
-.card {
-    width: 100%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
 
-main {
-    padding-bottom: 2%;
-    background-color: red;
-    color: white;
-    text-align: center;
-    min-height: 700px;
-}
-
-.btn {
-    background-color: white;
-    border-color: black;
-    border-width: 1px;
-    border-style: outset;
-}
 
 .block-admin{
     width: 80%;

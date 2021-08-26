@@ -2,21 +2,22 @@
   <div>
     <Header></Header>
     <main class="main">
-      <h1>Publier</h1>
-       <section class="row card bg-light m-5 p-3">
+      <h1>Modifier</h1>
+       <section class="row card m-5 p-3">
             <form enctype="multipart/form-data">
                 <div class="header p-1">
                     <h1  class="btn " style="cursor:default">
-                        {{ callName() }} vous allez créer une nouvelle publication    
+                        {{ callName() }} vous allez modifier une publication    
                     </h1>
                 </div>
                 <div class="row">
                     <div class="col-12 justify-content-center form-group">
                         <label for="newMessage">Donnez des détails sur votre publication.</label>
+
                         <textarea v-on:keydown="isInvalid = false" class="form-control" v-model="newMessage" id="newMessage" name="message" rows="8" placeholder="Saisissez votre message. (1500 caractères max)"></textarea>
                     </div>
                     <div class="col-12 justify-content-center text-center">
-                        <img :src="newImage" class="w-50 rounded">
+                        <img id="imgFile" :src="newImage"  class="w-50 rounded">
                         <p class="text-center"> un aperçu de votre post apparaîtra ici. Formats acceptés: jpg, jpeg, png et gif.</p>
                     </div>
                     <div class="col-12 justify-content-center">
@@ -26,9 +27,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="footer col-10 mx-auto align-content-center">
-                    <div><button type="submit" @click.prevent="send()" class="btn btn-block m-2 p-2">Valider</button></div>
-                    <router-link to="/messagerie"> <div> <a class="btn btn-block m-2 p-2">Annuler/Retour</a></div></router-link> 
+                <div class="align-content-center">
+                    <div><button type="submit" @click.prevent="send()" class="btn">Valider</button></div>
+                    <router-link to="/messagerie"> <div> <a class="btn">Annuler/Retour</a></div></router-link> 
                 </div>
                  <div v-show="isInvalid" class="invalidBox m-2" key="invalid">
                     <p>Vous ne pouvez pas envoyer de post sans contenu (vous devez inclure texte et image). Votre message doit faire moins de 1500 caractères.</p>        
@@ -46,8 +47,10 @@ import router from "../router";
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 
+
+
 export default {
-    name: "Create",
+    name: "Modify",
     components: {
       Header,
       Footer
@@ -60,8 +63,36 @@ export default {
             newMessage: "",
             file: null,
             messages: [],
-            isInvalid: false
+            isInvalid: false,
+
+            creation: "",
+            messageUserName: "",
+            messageUserId: "",
+            message: "",
+            messageId: "",
+            messageUrl: "",
+
+            
         }
+    },
+    created: function() {  
+        let MessageId   = localStorage.getItem('MessageId')
+        let self        = this;
+        axios.get("http://localhost:3000/api/messages/" + MessageId,  { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
+        .then((res) => {
+            console.log(res)
+            self.creation           = res.data.createdAt.slice(0,10).split("-").reverse().join(".");
+            self.messageUserName    = res.data.userName;
+            self.messageUserId      = res.data.userId;
+            self.message            = res.data.message;
+            this.newMessage = this.message;
+            self.messageId          = res.data.id; 
+            self.messageUrl         = res.data.messageUrl;
+            this.newImage = this.messageUrl;
+        })
+        .catch((error)=>{
+            alert(error)
+        })
     },
     methods: {
         callName() {
@@ -72,22 +103,26 @@ export default {
             this.file = this.$refs.file.files[0];
             this.newImage = URL.createObjectURL(this.file)
         },
+
         send() {
             if ( !this.file || !localStorage.getItem('userName') || !this.newMessage || this.newMessage > 1500 ) {
                     this.isInvalid = true;
-
-                    console.log("ligne 69" + this.file)
             } else {
+
                 const formData = new FormData()
                 formData.append("image", this.file)
-                formData.append("UserId", localStorage.getItem('userId'))
                 formData.append("message", this.newMessage.toString())
-                axios.post("http://localhost:3000/api/messages/", formData, { headers: { "Authorization":"Bearer " + localStorage.getItem("token")}})
+                formData.append("messageId", this.messageId)
+
+                console.log(formData)
+
+                axios.put("http://localhost:3000/api/messages/", formData, { headers: { "Authorization":"Bearer " + localStorage.getItem("token")}})
                 .then(()=> {
                     this.UserId = ""
                     this.newMessage = ""
                     this.file = null
-                    alert('publication réussie!')
+                    alert('modification réussie!')
+                    console.log("modif effectués")
                     router.push({path : 'messagerie'})
                 })
                 .catch((error)=>{
@@ -105,5 +140,10 @@ export default {
     border-color: black;
     border-width: 1px;
     border-style: outset;
+}
+
+.card {
+    width: 95%;
+    padding-bottom: 150px !important;
 }
 </style>

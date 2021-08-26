@@ -30,7 +30,7 @@
         </div>
             <div v-show="isInvalid">
             Veuillez vérifier vos informations de connexion.
-            <router-link to="/inscription"><button  class='font-weight-bold bouton' style="background-color: balck;">INSCRIPTION?</button></router-link>
+            <router-link to="/signup"><button  class='font-weight-bold bouton'>INSCRIPTION?</button></router-link>
             </div>  
             </form>
         </section>
@@ -92,7 +92,5 @@ export default {
 </script>
 
 <style scoped>
-.bouton {
-    margin: 10px;
-}
+
 </style>

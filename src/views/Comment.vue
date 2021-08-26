@@ -2,13 +2,13 @@
     <div>
     <Header></Header>
     <main class="main">
-        <h1>Comment</h1>
+        <h1>Publication</h1>
         <section class="container">
             <router-link to="/messagerie"><bouton>Retour</bouton></router-link>
         </section>
-        <section class="card ">
+        <section class="card " >
                 <div class="card-header">
-                    <span class="text-bold  p-1" style="color:red;" > 
+                    <span class="text-bold  p-1" > 
                         Posté par {{ messageUserName }}
                         le {{ creation }}
                     </span>
@@ -36,9 +36,9 @@
             <router-link to='/CreateComment' style="width:100%;"><p  v-if="comments.length == 0" class='nocomment'> Aucun commentaire pour l'instant, soyez le premier à en créer un !</p><p  v-else class='nocomment'> Ajouter un commentaire</p></router-link>
             
 
-            <div v-for="comment in comments" :key="comment" class="card">
+            <div v-for="comment in comments" :key="comment" class="card" style="max-width:1000px;">
                 <div class="card-header ">
-                    <p class="card" style=" color:red;">Commentaire rédigé le {{ comment.createdAt.slice(0,10).split('-').reverse().join('/') }}  par {{ comment.User.userName.charAt(0).toUpperCase() + comment.User.userName.slice(1) }}</p>
+                    <p class="card" >Commentaire rédigé le {{ comment.createdAt.slice(0,10).split('-').reverse().join('/') }}  par {{ comment.User.userName.charAt(0).toUpperCase() + comment.User.userName.slice(1) }}</p>
                 </div>
                 <div class="card-body">
                     <p>  {{ comment.comment }} </p>
@@ -185,19 +185,9 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    width: 95%;
-    margin-left: 2.5%;
-    color: red;
-}
-.card-body {
-    text-align: center;
-}
-main {
-    margin-left: 5%;
-    margin-right: 5%;
-    color: white;
-    text-align: center;
+.row
+{
+    justify-content: center;
 }
 
 .nocomment {
@@ -211,9 +201,5 @@ main {
 a:hover {
     color: black !important;
 }
-.btn {
-    border-color: black;
-    border-width: 1px;
-    border-style: outset;
-}
+
 </style>

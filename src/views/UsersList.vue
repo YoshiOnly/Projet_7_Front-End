@@ -1,7 +1,7 @@
 <template>
     <div v-if="isAdmin">    
         <Header></Header>
-        <main class="col-12">
+        <main class="col-12 main">
              <!-- div contenant le titre -->
             <div >
                <h1>Administration des users</h1>
@@ -12,7 +12,7 @@
                     <div class="card">
                         <div class="card-header">
                             <span>
-                                <p style="color:red;"> Bonjour {{ nameCurrentUser }} ! </p>
+                                <p > Bonjour {{ nameCurrentUser }} ! </p>
                                 <button @click="localClear" class="btn-signout" > SIGNOUT </button>
                             </span>
                         </div>
@@ -21,7 +21,7 @@
                                 <p>Membre depuis le {{ creation }}</p>
                             </div>
                             <div>
-                                <router-link v-if="isAdmin" to='/Admin'><button v-if="isAdmin" type="button"  class=" btn mx-auto rounded p-2">VOUS ÊTES L'ADMINISTRATEUR DU SITE</button></router-link> 
+                                <router-link v-if="isAdmin" to='/Admin'><button v-if="isAdmin" type="button"  class=" btn mx-auto rounded p-2">Administration</button></router-link> 
                             </div>
                         </div>
                         <div class="card-body mx-auto">
@@ -141,37 +141,11 @@ export default {
 </script>
 
 <style scoped>
-.card {
-    width: 100%;
-    margin-top: 1%;
-    margin-bottom: 1%;
-}
-
-main {
-    padding-bottom: 2%;
-    background-color: red;
-    color: white;
-    text-align: center;
-    min-height: 700px;
-}
-
 .btn {
-    background-color: white;
+
     border-color: black;
     border-width: 1px;
     border-style: outset;
-}
-
-.block-admin{
-    width: 80%;
-    margin-left: 10%;
-}
-
-.card-header {
-    height: 30px;
-    font-size: 20px;
-    padding: 0;
-    text-align: center;
 }
 
 .btn-signout {

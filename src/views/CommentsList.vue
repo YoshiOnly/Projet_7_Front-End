@@ -15,20 +15,23 @@
                         <div class="card-header">
                             <span>
                                 <span> Bonjour {{ nameCurrentUser }} ! </span>
-                                <button class="btn-signout" @click="localClear"> SIGNOUT </button>
+                                <button class="btn" @click="localClear"> SIGNOUT </button>
                             </span>
                         </div>
                         <div class="card-body text-center">
-                            <div class="dropdown text-center">
+                            <div class=" text-center">
                                 <p>Membre depuis le {{ creation }}</p>
                             </div>
                             <div>
                                 <router-link v-if="isAdmin" to='/Admin'><button  type="button" class=" btn  mx-auto rounded p-2 buttonsPanel">ADMINISTRATION </button></router-link> 
+                                
                             </div>
                         </div>
-                        <div class="card-body mx-auto">
-                            <div>Pour modérer les commentaires, veuillez vous rendre sur la page des commentaires.</div>
+                        <div class="card-footer">
+                                <p>Pour modérer les commentaires,  vous rendre sur la page des commentaires.</p>
                         </div>
+
+                            
                     </article> 
                 </sub>   
                  <!-- bloc listes messages  -->
@@ -49,7 +52,7 @@
                             <span class=""> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class=""> {{ i.message.slice(0,10) }}...</span> 
                             <span class=""> ref #{{ i.id }}</span> 
-                            <span class=""> <button class="btn-signout" @click="seeOnePost( i.id )"> Voir le message </button> </span> 
+                            <span class=""> <button class=" btn" @click="seeOnePost( i.id )"> Voir le message </button> </span> 
                         </div>
                     </div>
                 </sub>
@@ -127,12 +130,7 @@ export default {
     margin-left: 10%;
 }
 
-.card-header {
-    height: 30px;
-    font-size: 20px;
-    padding: 0;
-    text-align: center;
-}
+
 
 .btn-signout {
     height: 25px;

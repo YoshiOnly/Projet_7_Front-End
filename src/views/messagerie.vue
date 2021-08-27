@@ -12,7 +12,7 @@
                         <div class="card-header">
                             <div class="row justify-content-around">
                                 <p class="m-1" > Bonjour {{ name }} ! </p>
-                                <button @click="localClear"> Se deconnecter </button>
+                                <button class="btn" @click="localClear"> Se deconnecter </button>
                             </div>
                         </div>
                         <div class="card-body">
@@ -30,12 +30,12 @@
             <h2 v-if= 'this.messages.length !== 0' > Dernières Publications :</h2>   
             <h2  v-else class='col-12 my-2 btn  btn-block btn-danger font-weight-bold'> Aucune publication pour l'instant. :( </h2>
 
-            <router-link to='/Create' ><button type="button">PUBLIER</button></router-link>
+            <router-link to='/Create' ><button type="button" class="btn">PUBLIER</button></router-link>
 
             <div id="start"></div>
 
             
-
+    <!-- bloc publications -->
             <template id="templateArticle">
                 <div class="row">
                     <div v-for="message in messages" :key="message.id" class="card">
@@ -43,27 +43,26 @@
                             <span>
                                 Posté par {{ message.userName.charAt(0).toUpperCase() + message.userName.slice(1) }}
                                 le {{ message.createdAt.slice(0,10).split('-').reverse().join('.') + ' à ' + message.createdAt.slice(11,16) }}
-                            </span>
-                            <div>
-                                ref # {{ message.id }}                    
-                            </div>                                                                                       
+                            </span>                                                                              
                         </div>
 
-                        <div class="btn" @click="commentPage(message.id)">
-                            <img :src="message.messageUrl" v-if="message.messageUrl !== '' " class="border messImage" alt="image postée par un utilisateur" />
-                        </div>
-
-                        <div>
+                        <div class="publication">
                             {{message.message}}
                         </div>
 
+                        <div  @click="commentPage(message.id)">
+                            <img :src="message.messageUrl" v-if="message.messageUrl !== '' " class="border messImage" alt="image postée par un utilisateur" />
+                        </div>
+
+                        
+
                         <div class="row card-footer justify-content-around">
-                            <button @click="commentPage(message.id)" class="border-0"> Commenter </button>
+                            <button @click="commentPage(message.id)" class="btn"> Commenter </button>
                             <div v-if="isAdmin || message.UserId == id">
-                                <button @click="deleteMessage(message.id, message.UserId, id)" class="border-0"> Supprimer </button>
+                                <button @click="deleteMessage(message.id, message.UserId, id)" class="btn"> Supprimer </button>
                             </div>
                             <div v-if="isAdmin || message.UserId == id">
-                                <button  @click="modifyPage(message.id)" class="border-0"> Modifier </button>
+                                <button  @click="modifyPage(message.id)" class=" btn" > Modifier </button>
                             </div>
                         </div>                             
                     </div>                        

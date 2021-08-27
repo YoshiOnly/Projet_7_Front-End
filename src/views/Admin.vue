@@ -16,7 +16,7 @@
                         <div class="card-header">
                             <div class="row justify-content-around">
                                 <div class="m-1"> Bonjour {{ nameCurrentUser }} ! </div>
-                                <button @click="localClear"> SIGNOUT </button>
+                                <button @click="localClear" class="btn"> SIGNOUT </button>
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                  <!-- bloc choix (to comment list ou user list) -->
                 <article class="">
                     <h2 >FAITES VOTRE CHOIX</h2>
-                    <div class="row justify-content-around">
+                    <div class="row justify-content-around ">
                         <button @click="toCommentsList()" class="btn  rounded shadow font-weight-bold p-5 m-2">MESSAGES/COMMENTS</button>
                         <button @click="toUsersList()" class="btn  rounded shadow font-weight-bold p-5 m-2" >USERS</button>
                     </div>
@@ -106,4 +106,8 @@ export default {
 
 <style scoped>
 
+.row {
+    width: 80%;
+margin-left: 10%;
+}
 </style>

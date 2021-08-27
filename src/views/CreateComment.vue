@@ -4,11 +4,11 @@
     <main class="main">
       <h1>Commenter</h1>
        <!-- un seul bloc pour la creation de commentaire -->
-        <section class="row card bg-light m-5 p-3">
+        <section class="row card">
             <form enctype="multipart/form-data">
-                <div class="header">
+                <div class="">
                     <h1  class="btn " style="cursor:default">
-                        {{ callName() }} vous commentez la publication numéro <span class="badge font-weight-bold badge-light"> {{ callNumber() }}</span>
+                        {{ callName() }} vous commentez la publication numéro <span class=""> {{ callNumber() }}</span>
                     </h1>
                 </div>
                 <div class="row">
@@ -17,9 +17,9 @@
                         <textarea v-on:keydown="isInvalid = false"  class="form-control" v-model="newComment" id="newComment" name="comment" rows="8" placeholder=" Saisissez votre commentaire ici. (1500 caractères max) "></textarea>
                     </div>
                 </div>
-                <div class="footer col-10 mx-auto align-content-center">
-                    <div><button type="submit" @click.prevent="send()" class="btn  font=weight-bold btn-block m-2 p-2">Valider</button></div>
-                    <router-link to="/messagerie"> <div> <a class="btn btn-block m-2 p-2">Annuler/Retour</a></div></router-link> 
+                <div class="align-content-center">
+                    <div><button type="submit" @click.prevent="send()" class="btn  font=weight-bold ">Valider</button></div>
+                    <router-link to="/messagerie"> <div> <a class="btn">Annuler/Retour</a></div></router-link> 
                 </div>
                 <div v-show="isInvalid" class="invalidBox m-2" key="invalid">
                     <p> Vous devez renseigner la case " Saisissez votre commentaire ici en respectant les instructions (1500 caractères max) "</p>
@@ -91,5 +91,8 @@ export default {
 </script>
 
 <style scoped>
-
+.card {
+    width:80%;
+    margin-left: 10%;
+}
 </style>

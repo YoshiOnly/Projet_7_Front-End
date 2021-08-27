@@ -3,32 +3,32 @@
     <Header></Header>
     <main class="main">
       <h1>Publier</h1>
-       <section class="row card bg-light m-5 p-3">
+       <section class="card ">
             <form enctype="multipart/form-data">
                 <div class="header p-1">
                     <h1  class="btn " style="cursor:default">
                         {{ callName() }} vous allez créer une nouvelle publication    
                     </h1>
                 </div>
-                <div class="row">
-                    <div class="col-12 justify-content-center form-group">
+                <div class="">
+                    <div class=" justify-content-center form-group">
                         <label for="newMessage">Donnez des détails sur votre publication.</label>
                         <textarea v-on:keydown="isInvalid = false" class="form-control" v-model="newMessage" id="newMessage" name="message" rows="8" placeholder="Saisissez votre message. (1500 caractères max)"></textarea>
                     </div>
-                    <div class="col-12 justify-content-center text-center">
+                    <div class="justify-content-center text-center">
                         <img :src="newImage" class="w-50 rounded">
                         <p class="text-center"> un aperçu de votre post apparaîtra ici. Formats acceptés: jpg, jpeg, png et gif.</p>
                     </div>
-                    <div class="col-12 justify-content-center">
+                    <div class="justify-content-center">
                         <div class="form-group justify-content-center">
                             <label for="File">Choisir une nouvelle photo</label>
                             <input @change="selectFile()" type="file" ref="file" name="image" class="form-control-file" id="File" accept=".jpg, .jpeg, .gif, .png">
                         </div>
                     </div>
                 </div>
-                <div class="footer col-10 mx-auto align-content-center">
-                    <div><button type="submit" @click.prevent="send()" class="btn btn-block m-2 p-2">Valider</button></div>
-                    <router-link to="/messagerie"> <div> <a class="btn btn-block m-2 p-2">Annuler/Retour</a></div></router-link> 
+                <div class="col-10 mx-auto align-content-center">
+                    <div><button type="submit" @click.prevent="send()" class="btn">Valider</button></div>
+                    <router-link to="/messagerie"> <div> <a class="btn ">Annuler/Retour</a></div></router-link> 
                 </div>
                  <div v-show="isInvalid" class="invalidBox m-2" key="invalid">
                     <p>Vous ne pouvez pas envoyer de post sans contenu (vous devez inclure texte et image). Votre message doit faire moins de 1500 caractères.</p>        
@@ -101,9 +101,29 @@ export default {
 
 <style scoped>
 
-.btn {
-    border-color: black;
-    border-width: 1px;
-    border-style: outset;
+
+.row
+{
+    justify-content: center;
+    width: 90%;
+    padding-left: 10%;
+}
+
+.nocomment {
+    width: 100%;
+    color: white;
+}
+.nocomment:hover {
+    color: black;
+}
+
+a:hover {
+    color: black !important;
+}
+
+.card {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 </style>

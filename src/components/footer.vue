@@ -3,7 +3,7 @@
         <div class="container bloc-sm">
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="text-center black">
+                    <p class="text-center">
                         Groupomania - Sur les réseaux:<br>
                     </p>
                     <div class="row row-no-gutters social">

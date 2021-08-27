@@ -26,14 +26,17 @@ $transparent: rgba(255, 255, 255, 0);
 .header {
     background-color: $background_color !important;
     min-height: 100px;
-    color: $primary_color !important;
+    color: white !important;
+    font-size: 24px;
 }
 
 .footer {
     background-color: $background_color !important;
     min-height: 100px;
-    color: $primary_color !important;
+    color: white !important;
     padding-top: 50px;
+    font-size: 24px;
+    padding-bottom: 5px;
 }
 
 .main {
@@ -53,17 +56,32 @@ $transparent: rgba(255, 255, 255, 0);
 
 .card-body {
     background-color: $background_color;
-    color: $primary_color;
+    color: black;
+    font-size: 24px;
+    border-color: $background_color;
+border-width: 2px;
+border-style: inset;
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+background-color: lighten($secondary_color, 5%);
 }
 
 .card-header{
     color: $black;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.card-footer {
+    width: 80%;
+margin-left: 10%;
 }
 
 .card {
     margin: 5px;
     height: 100%;
-    width: 100%;
+    width: 98%;
     margin-top: 1%;
     margin-bottom: 1%;
     background-color: $white;
@@ -80,7 +98,7 @@ $transparent: rgba(255, 255, 255, 0);
 a {
     color: unset;
     &:hover {
-        color: $third_color !important;
+        color: $primary_color;
     }
 }
 
@@ -193,10 +211,10 @@ h2 {
         transform: scale(1.0)
     }
     50% {
-        transform: scale(1.15);
+        transform: scale(1.1);
     }
     100%{
-        transform: scale(1.2);
+        transform: scale(1.05);
     }
 }
 
@@ -268,9 +286,39 @@ h2 {
     border-color: $black;
     border-width: 1px;
     border-style: outset;
+    border-radius: 10px;
+    color: black;
+    &:hover {
+        color:$background_color;
+
+            animation-name: btnAnimation;
+            animation-duration: 500ms;
+            animation-fill-mode: both;
+
+    }
 }
 
 .messImage{
     max-width: 90%;
     max-height: 80%;
+    border-color: black;
+    border-width: 3px;
+    border-style: inset;
+    border-radius: 15px;
+    margin:20px;
+}
+
+.position-centrale {
+    width: 80%;
+margin-left: 10%;
+}
+
+.publication {
+    padding-bottom: 10px;
+padding-top: 10px;
+font-weight: bold;
+font-size: 24px;
+border-color: $background_color;
+border-width: 2px;
+border-style: solid;
 }

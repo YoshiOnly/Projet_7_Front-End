@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <button id="signup" class="bouton">S'inscrire</button>
+                    <button id="signup" class="bouton btn">S'inscrire</button>
                 </div>
             </div>
             </form>

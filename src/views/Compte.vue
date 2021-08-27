@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <main class=" main row justify-content-center">
+    <main class=" main justify-content-center">
 
             <!-- div contenant le titre -->
         <div class="col-12">
@@ -134,4 +134,8 @@ export default {
 </script>
 
 <style scoped>
+.row {
+  width: 80%;
+margin-left: 10%;
+}
 </style>

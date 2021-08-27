@@ -3,10 +3,10 @@
     <Header></Header>
     <main class="main">
       <h1>Modifier</h1>
-       <section class="row card m-5 p-3">
+       <section class="row card">
             <form enctype="multipart/form-data">
                 <div class="header p-1">
-                    <h1  class="btn " style="cursor:default">
+                    <h1   style="cursor:default">
                         {{ callName() }} vous allez modifier une publication    
                     </h1>
                 </div>
@@ -31,7 +31,7 @@
                     <div><button type="submit" @click.prevent="send()" class="btn">Valider</button></div>
                     <router-link to="/messagerie"> <div> <a class="btn">Annuler/Retour</a></div></router-link> 
                 </div>
-                 <div v-show="isInvalid" class="invalidBox m-2" key="invalid">
+                 <div v-show="isInvalid" class="invalidBox" key="invalid">
                     <p>Vous ne pouvez pas envoyer de post sans contenu (vous devez inclure texte et image). Votre message doit faire moins de 1500 caractères.</p>        
                 </div>  
             </form>
@@ -143,7 +143,8 @@ export default {
 }
 
 .card {
-    width: 95%;
+    width: 80%;
     padding-bottom: 150px !important;
+    margin-left: 10%;
 }
 </style>

@@ -21,7 +21,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <button type="submit" class='font-weight-bold bouton' id="connexion">Se connecter</button>
+                    <button type="submit" class='font-weight-bold bouton btn' id="connexion">Se connecter</button>
                 </div>
             </div>
             
@@ -30,7 +30,7 @@
         </div>
             <div v-show="isInvalid">
             Veuillez vérifier vos informations de connexion.
-            <router-link to="/signup"><button  class='font-weight-bold bouton'>INSCRIPTION?</button></router-link>
+            <router-link to="/signup"><button  class='font-weight-bold bouton btn'>INSCRIPTION?</button></router-link>
             </div>  
             </form>
         </section>

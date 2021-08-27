@@ -16,14 +16,17 @@
 .header {
   background-color: #D1515A !important;
   min-height: 100px;
-  color: #091F43 !important;
+  color: white !important;
+  font-size: 24px;
 }
 
 .footer {
   background-color: #D1515A !important;
   min-height: 100px;
-  color: #091F43 !important;
+  color: white !important;
   padding-top: 50px;
+  font-size: 24px;
+  padding-bottom: 5px;
 }
 
 .main {
@@ -42,17 +45,32 @@
 
 .card-body {
   background-color: #D1515A;
-  color: #091F43;
+  color: black;
+  font-size: 24px;
+  border-color: #D1515A;
+  border-width: 2px;
+  border-style: inset;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #e1e1e1;
 }
 
 .card-header {
   color: black;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.card-footer {
+  width: 80%;
+  margin-left: 10%;
 }
 
 .card {
   margin: 5px;
   height: 100%;
-  width: 100%;
+  width: 98%;
   margin-top: 1%;
   margin-bottom: 1%;
   background-color: #D4D4D4;
@@ -70,7 +88,7 @@ a {
   color: unset;
 }
 a:hover {
-  color: #fc0446 !important;
+  color: #091F43;
 }
 
 .site-navigation {
@@ -171,10 +189,10 @@ h2 {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.15);
+    transform: scale(1.1);
   }
   100% {
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
 }
 /* Btn */
@@ -235,11 +253,39 @@ h2 {
   border-color: black;
   border-width: 1px;
   border-style: outset;
+  border-radius: 10px;
+  color: black;
+}
+.btn:hover {
+  color: #D1515A;
+  animation-name: btnAnimation;
+  animation-duration: 500ms;
+  animation-fill-mode: both;
 }
 
 .messImage {
   max-width: 90%;
   max-height: 80%;
+  border-color: black;
+  border-width: 3px;
+  border-style: inset;
+  border-radius: 15px;
+  margin: 20px;
+}
+
+.position-centrale {
+  width: 80%;
+  margin-left: 10%;
+}
+
+.publication {
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  border-color: #D1515A;
+  border-width: 2px;
+  border-style: solid;
 }
 
 /*# sourceMappingURL=style.css.map */

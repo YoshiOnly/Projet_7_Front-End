@@ -1,3 +1,5 @@
+<!-- User list view -->
+
 <template>
     <div v-if="isAdmin">    
         <Header></Header>
@@ -13,7 +15,7 @@
                         <div class="card-header">
                             <span>
                                 <p > Bonjour {{ nameCurrentUser }} ! </p>
-                                <button @click="localClear" class="btn-signout" > SIGNOUT </button>
+                                <button @click="localClear" class="btn" > SIGNOUT </button>
                             </span>
                         </div>
                         <div class="card-body text-center">
@@ -30,7 +32,7 @@
                     </div> 
                 </article> 
                  <!-- bloc listes utilisateurs -->  
-                <sub class="col col-md-8">
+                <div class="bloc-user">
                     <h2 class="text-center">
                         LISTE DE TOUS LES UTILISATEURS
                     </h2>
@@ -41,14 +43,14 @@
                         <span class="">SUPPRIMER</span> 
                     </div>
                     <div v-for="i in users" :key="i">   
-                        <div class="bloc-com">
+                        <div class="bloc-com row">
                             <span class=""> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class=""> {{ i.email }} </span> 
                             <span class=""> {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  
-                            <span class=""> <button class="btn-signout" @click="deleteOneUser( i.id, isAdmin )"> supprimer </button> </span> 
+                            <span class=""> <button class=" btn" @click="deleteOneUser( i.id, isAdmin )"> supprimer </button> </span> 
                         </div>
                     </div>
-                </sub>
+                </div>
             </section>
         </main>
         <Footer></Footer>
@@ -152,12 +154,19 @@ export default {
     height: 25px;
 }
 .bloc-ref {
+    display: block;
 font-size: 20px;
 font-weight: bold;
 height: 30px;
 }
 .bloc-com {
+    display: block;
 font-size: 16px;
 height: 30px;
+}
+
+.bloc-user {
+    display: flex;
+flex-direction: column;
 }
 </style>

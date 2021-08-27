@@ -4,7 +4,7 @@
     <main class="main">
         <h1>Publication</h1>
         <section class="container">
-            <router-link to="/messagerie"><bouton>Retour</bouton></router-link>
+            <router-link to="/messagerie"><bouton class="btn">Retour</bouton></router-link>
         </section>
         <section class="card " >
                 <div class="card-header">
@@ -16,24 +16,25 @@
                         ref # {{ messageId}}
                     </div>                                                                                       
                 </div>
+                <div class="publication"> 
+                        <div>   {{ message }} </div> 
+                </div> 
                 <div>
                     <p class="text-center"> 
                         <router-link to='/Comment'><img :src="messageUrl" v-if="messageUrl !== '' " class="border messImage" alt="image postee par utilisateur"></router-link>
                     </p>                          
                 </div> 
-                <div class="">
-                    <div> 
-                        <div>   {{ message }} </div> 
-                    </div> 
+                <div >
+                    
                     <div v-if="isAdmin || messageUserId == currentUserId">
-                        <button @click="deleteMessage(messageId, messageUserId, currentUserId)"> Delete </button>
+                        <button @click="deleteMessage(messageId, messageUserId, currentUserId)" class="btn"> Delete </button>
                     </div>
                 </div>
             </section> 
 
             <!-- section commentaire(s) -->
         <section class="row">
-            <router-link to='/CreateComment' style="width:100%;"><p  v-if="comments.length == 0" class='nocomment'> Aucun commentaire pour l'instant, soyez le premier à en créer un !</p><p  v-else class='nocomment'> Ajouter un commentaire</p></router-link>
+            <router-link to='/CreateComment' style="width:100%;"><p  v-if="comments.length == 0" class=' btn'> Aucun commentaire pour l'instant, soyez le premier à en créer un !</p><p  v-else class='btn'> Ajouter un commentaire</p></router-link>
             
 
             <div v-for="comment in comments" :key="comment" class="card" style="max-width:1000px;">
@@ -44,10 +45,8 @@
                     <p>  {{ comment.comment }} </p>
                 </div>
                 <div class="">
-                    <p class="btn " style="">ref# <span class="badge badge-light"> {{ comment.id }}</span></p>
-
                     <div v-if="isAdmin || comment.UserId == currentUserId">
-                        <button @click="deleteComment(comment.id, comment.UserId, currentUserId)" class="border-0"> Delete </button>
+                        <button @click="deleteComment(comment.id, comment.UserId, currentUserId)" class="btn"> Delete </button>
                     </div>
 
                 </div>
@@ -188,6 +187,8 @@ export default {
 .row
 {
     justify-content: center;
+    width: 90%;
+    padding-left: 10%;
 }
 
 .nocomment {
@@ -200,6 +201,12 @@ export default {
 
 a:hover {
     color: black !important;
+}
+
+.card {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 </style>

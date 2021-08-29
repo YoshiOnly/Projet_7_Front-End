@@ -17,7 +17,17 @@
   background-color: #D1515A !important;
   min-height: 100px;
   color: white !important;
-  font-size: 24px;
+  font-size: 16px;
+}
+@media screen and (min-width: 1000px) {
+  .header {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .header {
+    font-size: 20px;
+  }
 }
 
 .footer {
@@ -25,8 +35,18 @@
   min-height: 100px;
   color: white !important;
   padding-top: 50px;
-  font-size: 24px;
+  font-size: 16px;
   padding-bottom: 5px;
+}
+@media screen and (min-width: 1000px) {
+  .footer {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .footer {
+    font-size: 20px;
+  }
 }
 
 .main {
@@ -46,7 +66,7 @@
 .card-body {
   background-color: #D1515A;
   color: black;
-  font-size: 24px;
+  font-size: 16px;
   border-color: #D1515A;
   border-width: 2px;
   border-style: inset;
@@ -54,6 +74,16 @@
   margin-left: auto;
   margin-right: auto;
   background-color: #e1e1e1;
+}
+@media screen and (min-width: 1000px) {
+  .card-body {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  .card-body {
+    font-size: 20px;
+  }
 }
 
 .card-header {
@@ -121,6 +151,13 @@ h2 {
   margin-bottom: 10px;
 }
 
+a:focus {
+  scale: 1.2;
+  border-color: #fc0446 !important;
+  border-style: solid !important;
+  border-width: 4px !important;
+}
+
 /* bootstrap card */
 .small-card {
   width: 100%;
@@ -146,9 +183,19 @@ h2 {
 }
 
 #cardName {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   padding-bottom: unset;
+}
+@media screen and (min-width: 1000px) {
+  #cardName {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  #cardName {
+    font-size: 20px;
+  }
 }
 
 #cardPrice {
@@ -176,11 +223,21 @@ h2 {
 }
 
 #totalPrice {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   text-align: center;
   padding-top: 30px;
   padding-bottom: 30px;
+}
+@media screen and (min-width: 1000px) {
+  #totalPrice {
+    font-size: 24px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 1000px) {
+  #totalPrice {
+    font-size: 20px;
+  }
 }
 
 /* Animation */
@@ -209,14 +266,14 @@ h2 {
 
 .btnSmall {
   border-radius: 40px;
-  font-size: 24px;
+  font-size: 16px;
   padding: 10px;
   border-width: 10px;
 }
 @media screen and (min-width: 1000px) {
   .btnSmall {
     border-radius: 20px;
-    font-size: 12px;
+    font-size: 24px;
     padding: 5px;
     border-width: 5px;
   }
@@ -224,7 +281,7 @@ h2 {
 
 .btnBig {
   border-radius: 40px;
-  font-size: 24px;
+  font-size: 16px;
   padding: 10px;
   border-width: 10px;
 }
@@ -261,6 +318,12 @@ h2 {
   animation-name: btnAnimation;
   animation-duration: 500ms;
   animation-fill-mode: both;
+}
+.btn:focus {
+  scale: 1.2;
+  border-color: #fc0446 !important;
+  border-style: solid !important;
+  border-width: 4px !important;
 }
 
 .messImage {

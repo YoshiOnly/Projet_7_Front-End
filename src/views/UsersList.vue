@@ -47,8 +47,9 @@
                             <span class=""> {{ i.userName.charAt(0).toUpperCase() + i.userName.slice(1) }} </span> 
                             <span class=""> {{ i.email }} </span> 
                             <span class=""> {{ i.createdAt.slice(0,10).split("-").reverse().join(".")}} </span>  
-                            <span class=""> <button class=" btn" @click="deleteOneUser( i.id, isAdmin )"> supprimer </button> </span> 
+                            
                         </div>
+                        <div class=""> <button class=" btn" @click="deleteOneUser( i.id, isAdmin )"> supprimer </button> </div> 
                     </div>
                 </div>
             </section>
@@ -58,6 +59,8 @@
 </template>
 
 <script>
+//import (components, axios et router)
+
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 import axios from "axios";
@@ -78,10 +81,12 @@ export default {
             users: []
         }
     },
+    //function is done at the begining of the page
     created: function() {        
         let id          = localStorage.getItem('userId');
         let self        = this;  
 
+        //get user information for auth
         axios.get("http://localhost:3000/api/users/" + id , { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then(res => {  
             self.creation           = res.data.createdAt.slice(0,10).split("-").reverse().join(".");
@@ -91,6 +96,7 @@ export default {
         .catch((error)=> { console.log(error) 
         });
 
+        //get all user information for modification
         axios.get("http://localhost:3000/api/users/all" , { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then((res) => {  
             this.users = res.data.found;
@@ -102,6 +108,8 @@ export default {
         });    
     },
     methods: {
+
+        // suppression d'un user
         deleteOneUser(uid, isAdmin) {
         console.log(uid, isAdmin)
         
@@ -129,10 +137,12 @@ export default {
                 return 
             }
         },
+        //deconnexion
         localClear() {
             localStorage.clear();
             router.push({ path : "/" });
         },
+        //go to publication
         seeOnePost(m) {
             console.log(m);
             localStorage.setItem('MessageId', m);

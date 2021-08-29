@@ -1,3 +1,5 @@
+<!-- Ecriture d'un post -->
+
 <template>
   <div>
     <Header></Header>
@@ -73,15 +75,20 @@ export default {
             this.newImage = URL.createObjectURL(this.file)
         },
         send() {
-            if ( !this.file || !localStorage.getItem('userName') || !this.newMessage || this.newMessage > 1500 ) {
+            if ( !localStorage.getItem('userName') || !this.newMessage || this.newMessage > 1500 ) {
                     this.isInvalid = true;
 
                     console.log("ligne 69" + this.file)
             } else {
                 const formData = new FormData()
-                formData.append("image", this.file)
+
+                if(this.file != null) {
+                    formData.append("image", this.file)
+                }
+                
                 formData.append("UserId", localStorage.getItem('userId'))
                 formData.append("message", this.newMessage.toString())
+                
                 axios.post("http://localhost:3000/api/messages/", formData, { headers: { "Authorization":"Bearer " + localStorage.getItem("token")}})
                 .then(()=> {
                     this.UserId = ""

@@ -1,3 +1,4 @@
+<!-- Inscription/signup -->
 
 <template>
     <div>
@@ -44,6 +45,8 @@
 
 
 <script>
+
+//Import
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 import router from "../router";
@@ -69,6 +72,7 @@ export default {
             router.push({path : "/messagerie"})
         } },
     methods: {
+        //envoie du formulaire d'inscription
         sendForm() {
 
             if ( !this.inputUserName || !this.inputEmail || !this.inputPassword ) {

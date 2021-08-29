@@ -1,3 +1,4 @@
+<!-- Connexion/Log in -->
 
 <template>
     <div>
@@ -41,6 +42,7 @@
 
 
 <script>
+//imort
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 import router from "../router";
@@ -59,11 +61,14 @@ export default {
             isInvalid: false
         }
     },
+    //redirection si connecté
     created: function() {        
         if (localStorage.getItem('userId') != null){
             router.push({path : "/messagerie"})
         } },
+
     methods: {
+        // envoie du formulaire pour connexion et redirection
         handleSubmit() {
             if ( !this.inputEmail || !this.inputPassword ) {
                     return this.isInvalid = true;

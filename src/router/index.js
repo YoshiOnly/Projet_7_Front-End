@@ -1,14 +1,20 @@
+/*
+* Router
+*/
+
+//import
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
 import Signup from '../views/signup.vue'
 import Messagerie from '../views/messagerie.vue'
 import Create from '../views/Create.vue'
-import Comment from '../views/Comment.vue'
+import Publication from '../views/Comment.vue'
 import Modify from "../views/Modify.vue"
 
 Vue.use(VueRouter)
 
+//paths
 const routes = [
   {
     path: '/',
@@ -31,9 +37,9 @@ const routes = [
     component: Create
   },
   {
-    path: '/comment',
-    name: 'comment',
-    component: Comment
+    path: '/Publication/:id', //parametre id
+    name: 'Publication',
+    component: Publication
   },
   {
     path: '/Modify',

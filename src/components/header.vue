@@ -7,7 +7,10 @@
             </a>
             <ul class="site-navigation nav navbar-nav">
                 <li>
-                    <router-link v-if="isConnected" to="/messagerie">Mon compte</router-link>
+                    <router-link v-if="isConnected" to="/messagerie">Fil d'actualité</router-link>
+                </li>
+                <li>
+                    <router-link v-if="isConnected" to="/Compte">Mon compte</router-link>
                 </li>
                 <li>
                     <router-link v-if="!isConnected" to="/">Connexion</router-link>

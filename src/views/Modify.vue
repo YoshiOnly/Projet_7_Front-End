@@ -1,3 +1,5 @@
+<!-- Modification des publications -->
+
 <template>
   <div>
     <Header></Header>
@@ -42,6 +44,7 @@
 </template>
 
 <script>
+//import
 import axios from "axios"
 import router from "../router";
 import Header from "../components/header.vue";
@@ -75,6 +78,7 @@ export default {
             
         }
     },
+    // function du début
     created: function() {  
         let MessageId   = localStorage.getItem('MessageId')
         let self        = this;
@@ -95,22 +99,29 @@ export default {
         })
     },
     methods: {
+        //récupération des données de nom
         callName() {
             let name = localStorage.getItem('userName');
             return name.charAt(0).toUpperCase() + name.slice(1);
         },
+        //sélection d'un fichier image
         selectFile() {
             this.file = this.$refs.file.files[0];
             this.newImage = URL.createObjectURL(this.file)
         },
 
+        //envoi du formulaire pour modification (put)
         send() {
-            if ( !this.file || !localStorage.getItem('userName') || !this.newMessage || this.newMessage > 1500 ) {
+            if (!localStorage.getItem('userName') || !this.newMessage || this.newMessage > 1500 ) {
                     this.isInvalid = true;
             } else {
 
                 const formData = new FormData()
-                formData.append("image", this.file)
+
+                if(this.file != null) {
+                    formData.append("image", this.file)
+                }
+                
                 formData.append("message", this.newMessage.toString())
                 formData.append("messageId", this.messageId)
 

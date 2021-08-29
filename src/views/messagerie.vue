@@ -1,3 +1,4 @@
+<!-- Fil d'actualité -->
 
 <template>
     <div>
@@ -76,32 +77,39 @@
 
 
 <script>
+//imports
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 import router from "../router";
 import axios from "axios";
 
+//export
 export default {
   name: 'Messagerie',
   components: {
     Header,
     Footer
   },
+  // données
   data() {
         return {
+            //user admin?
             isAdmin: false,
+            //publications...
             messages: [],
             id: "",                 
             name: "",               
             creation: ""           
         }
     },
+    //fonction du début
     created: function() {       
         if(localStorage.getItem("userId") == null){
             router.push({path : "/"})
         } 
         let id = localStorage.getItem('userId')
 
+        //récupération messages
         axios.get("http://localhost:3000/api/messages",  { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then((res) => {
             if (res) {
@@ -118,6 +126,7 @@ export default {
             console.log(error)
         })   
         let self = this;
+        // récupération users
         axios.get("http://localhost:3000/api/users/" + id, { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then(res => {  
             console.log(res)
@@ -130,23 +139,26 @@ export default {
         });    
     },
     methods: {
+        //redirection vers page de commentaire
         commentPage(m) {
             console.log(m);
             localStorage.setItem('MessageId', m);
-            router.push({ path : "/Comment" });
+            router.push({ name: "Publication", params: { id: m} });
         },
+        //redirection vers page de modification
         modifyPage(m) {
             console.log(m);
             localStorage.setItem('MessageId', m);
             router.push({ path : "/Modify" });
         },
+        //suppression d'un message (si admin ou user du message)
         deleteMessage(a, b, c) {
             console.log(
                 typeof a,
                 typeof b,
                 typeof c
             )
-            let confirmMessageDeletion = confirm("voulez-vous vraiment supprimer cette image ?, tous les commentaires associés seront également supprimés.");
+            let confirmMessageDeletion = confirm("voulez-vous vraiment supprimer cette publication ? Tous les commentaires associés seront également supprimés.");
             if (confirmMessageDeletion == true) {
                 axios.delete("http://localhost:3000/api/messages/", {
                     headers: { 

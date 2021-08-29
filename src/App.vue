@@ -13,7 +13,7 @@ export default {
     name: "App"
 }
 </script>
-
+<!-- css dans style -->
 <style src="../src/CSS/style.css">
 
 </style>

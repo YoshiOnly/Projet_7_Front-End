@@ -3,13 +3,14 @@
 <template>
     <div v-if="isAdmin">   
         <Header></Header> 
-        <main class="col-12 main">
+        <main class="main justify-content-center">
              <!-- div incluant le titre -->
             <div>
                 <h1>Administration des commentaires</h1>
             </div>
-            <section id="filPrincipal" class="">
-                <sub class="block-admin">
+
+            <section id="filPrincipal" class="row">
+                <div class="col-12">
                      <!-- bloc utilisateur -->
                     <article class="card">
                         <div class="card-header">
@@ -18,14 +19,12 @@
                                 <button class="btn" @click="localClear"> SIGNOUT </button>
                             </span>
                         </div>
-                        <div class="card-body text-center">
-                            <div class=" text-center">
-                                <p>Membre depuis le {{ creation }}</p>
+                        <div class="card-body">
+                            <div class="">
+                                <div>Membre depuis le :</div>
+                                <div>{{ creation }}</div>
                             </div>
-                            <div>
-                                <router-link v-if="isAdmin" to='/Admin'><button  type="button" class=" btn  mx-auto rounded p-2 buttonsPanel">ADMINISTRATION </button></router-link> 
-                                
-                            </div>
+                            
                         </div>
                         <div class="card-footer">
                                 <p>Pour modérer les commentaires,  vous rendre sur la page des commentaires.</p>
@@ -33,9 +32,9 @@
 
                             
                     </article> 
-                </sub>   
+                </div>   
                  <!-- bloc listes messages  -->
-                <sub class="col col-md-8">
+                <div class="col col-md-8">
                     <h2 class="text-center">
                         Liens vers tous les messages et leurs commentaires.
                     </h2>
@@ -55,7 +54,7 @@
                             <span class=""> <button class=" btn" @click="seeOnePost( i.id )"> Voir le message </button> </span> 
                         </div>
                     </div>
-                </sub>
+                </div>
             </section>
         </main>
         <Footer></Footer>
@@ -116,7 +115,7 @@ export default {
         seeOnePost(m) {
             console.log(m);
             localStorage.setItem('MessageId', m);
-            router.push({path : "/comment"})
+            router.push({ name: "Publication", params: { id: m} });
         }
     }
 }
@@ -125,23 +124,4 @@ export default {
 <style scoped>
 
 
-.block-admin{
-    width: 80%;
-    margin-left: 10%;
-}
-
-
-
-.btn-signout {
-    height: 25px;
-}
-.bloc-ref {
-font-size: 20px;
-font-weight: bold;
-height: 30px;
-}
-.bloc-com {
-font-size: 16px;
-height: 30px;
-}
 </style>

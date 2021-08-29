@@ -1,3 +1,5 @@
+<!-- Page du compte -->
+
 <template>
   <div>
     <Header></Header>
@@ -8,7 +10,7 @@
           <h1>Vous consultez vote compte</h1>
         </div>
 
-        <router-link to="/messagerie"><bouton>Retour</bouton></router-link>
+        <router-link to="/messagerie"><bouton class="btn">Retour</bouton></router-link>
 
         <section id="filPrincipal" class="row">
           <div class="col-12">

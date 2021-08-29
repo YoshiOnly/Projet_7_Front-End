@@ -1,3 +1,5 @@
+<!-- Ecriture d'un commentaire -->
+
 <template>
   <div>
     <Header></Header>
@@ -32,6 +34,7 @@
 </template>
 
 <script>
+//import
 import Header from "../components/header.vue";
 import Footer from "../components/footer.vue";
 import axios from "axios"
@@ -78,7 +81,7 @@ export default {
                     this.newMessage = ""
             
                     alert('Commentaire Posté!')
-                    router.push({path : 'Comment'})
+                    router.push({path : "messagerie"})
                     
                 })
                 .catch((error)=>{

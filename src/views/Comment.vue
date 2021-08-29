@@ -21,7 +21,7 @@
                 </div> 
                 <div>
                     <p class="text-center"> 
-                        <router-link to='/Comment'><img :src="messageUrl" v-if="messageUrl !== '' " class="border messImage" alt="image postee par utilisateur"></router-link>
+                        <img :src="messageUrl" v-if="messageUrl !== '' " class="border messImage" alt="image postee par utilisateur">
                     </p>                          
                 </div> 
                 <div >
@@ -67,7 +67,7 @@ import router from "../router";
 import axios from "axios";
 
 export default {
-  name: 'Comment',
+  name: 'Publication',
   components: {
     Header,
     Footer
@@ -91,7 +91,10 @@ export default {
     created: function() {  
         
 
-        let MessageId   = localStorage.getItem('MessageId')
+        //let MessageId   = localStorage.getItem('MessageId')
+
+        let MessageId   = this.$route.params.id
+
         let self        = this;
         axios.get("http://localhost:3000/api/messages/" + MessageId,  { headers: {"Authorization": "Bearer " + localStorage.getItem("token")} })
         .then((res) => {

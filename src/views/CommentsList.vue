@@ -9,7 +9,7 @@
                 <h1>Administration des commentaires</h1>
             </div>
 
-            <div><router-link to="/Admin"><bouton class="btn">Retour</button></router-link></div>
+            <div><router-link to="/Admin"><button class="btn">Retour</button></router-link></div>
 
             <section id="filPrincipal" class="row">
                 <div class="col-12">

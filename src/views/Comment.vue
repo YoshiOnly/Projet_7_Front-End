@@ -4,7 +4,7 @@
     <main class="main">
         <h1>Publication</h1>
         <section class="container">
-            <router-link to="/messagerie"><bouton class="btn">Retour</button></router-link>
+            <router-link to="/messagerie"><button class="btn">Retour</button></router-link>
         </section>
         <section class="card " >
                 <div class="card-header">

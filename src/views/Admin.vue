@@ -27,7 +27,7 @@
 
                             <div>
                                 <div v-if="isAdmin">
-                                    <router-link to='/Admin'><div v-if="isAdmin" type="button">VOUS ÊTES L'ADMINISTRATEUR DU SITE</div></router-link> 
+                                    <div v-if="isAdmin" >VOUS ÊTES L'ADMINISTRATEUR DU SITE</div>
                                 </div>
                             </div>
                         </div>

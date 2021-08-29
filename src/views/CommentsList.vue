@@ -9,6 +9,8 @@
                 <h1>Administration des commentaires</h1>
             </div>
 
+            <div><router-link to="/Admin"><bouton class="btn">Retour</button></router-link></div>
+
             <section id="filPrincipal" class="row">
                 <div class="col-12">
                      <!-- bloc utilisateur -->
@@ -34,7 +36,7 @@
                     </article> 
                 </div>   
                  <!-- bloc listes messages  -->
-                <div class="col col-md-8">
+                <div class="col col-md-8" style="margin: auto;">
                     <h2 class="text-center">
                         Liens vers tous les messages et leurs commentaires.
                     </h2>

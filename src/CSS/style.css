@@ -152,10 +152,11 @@ h2 {
 }
 
 a:focus {
-  scale: 1.2;
-  border-color: #fc0446 !important;
+  transform: scale(1.05);
+  border-color: #091F43 !important;
   border-style: solid !important;
-  border-width: 4px !important;
+  border-width: 2px !important;
+  border-radius: 50%;
 }
 
 /* bootstrap card */
@@ -320,10 +321,10 @@ a:focus {
   animation-fill-mode: both;
 }
 .btn:focus {
-  scale: 1.2;
-  border-color: #fc0446 !important;
+  transform: scale(1.05);
+  border-color: #D1515A !important;
   border-style: solid !important;
-  border-width: 4px !important;
+  border-width: 2px !important;
 }
 
 .messImage {
